@@ -357,9 +357,11 @@ ul li a i
   cursor: pointer;
 }
 
+
 .event-details-con
 {
 	width: 500px;
+	overflow: hidden;
 	padding: 3px;
 	background: white;
 	box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.38);
@@ -571,4 +573,18 @@ font-family: 'Roboto Condensed', sans-serif;
 .firstplace .erow
 {
 	color:#222;
+}
+.pagebtn
+{
+	width: 100%;
+	padding: 6px;
+	font-size: 24px;
+	background: white;
+	color:#181717;
+	display: flex;
+	justify-content: space-between;
+}
+.can-name-panel
+{
+	transition: 0.2s ease-in-out;
 }

@@ -77,12 +77,6 @@
 		</div>
   	</div>
   	<br>
-  	
-  		
-  		
-  		
-
-	
 			<?php 
   
 		  	$mysqli = require __DIR__ . "/connect.php";
@@ -102,19 +96,28 @@
 
 		  	 				<h3><?=$portion['name']?></h3>
 		  	 			</div>
-		  	 			<?php 
-  								
+		  	 			
+		  	 				
+		  	 					<?php 
+  								$i=0;
 							  	
 							  	$sql = "SELECT * FROM `candidate` where pGQneg={$_GET['ev-id']} ORDER BY can_no" ;
 							  	$res=$mysqli->query($sql);
-							  	
+							  	$cancount=mysqli_num_rows($res);
+							  	?>
+							  	<div class="can-name-panel" style="width: <?=$cancount*100?>%;">
+							  	<div style="display: flex; justify-content: space-between;">
+							  	<?php
+
 							  	if(mysqli_num_rows($res)>0)
 							  	{
 							  	 while ($candidate=$res->fetch_assoc()) {
-							  	 	$id="".$candidate['vADq6R'].""."".$portion['gdSWLv']."";
+							  	 	
+							  	 	$id="".$portion['gdSWLv']."";
 							  	 	?>
 							  	 		
-							  	 			<div id=<?=$id?>>
+							  	 			<div style="width:100%;">
+							  	 				<div id=<?=$id?>>
 							  	 				<div class="erow can-name-con">
 							  	 				
 							  	 				<h4 style="padding: 6px;"><?=$candidate['can_no']?></h4>
@@ -185,6 +188,7 @@
 							  	 					<?php } 
 							  						}
 							  	 		       ?>
+							  	 			</div>
 							  	 	<?php
 
 
@@ -193,6 +197,12 @@
 								
 							    
 								?>
+		  	 				</div>
+		  	 			</div>
+		  	 			<div class="pagebtn">
+		  	 				<i class="fa-solid fa-caret-left"></i>
+		  	 				<i class="fa-solid fa-caret-right"></i>
+		  	 			</div>
 		  	 		</div> <br>
 		  	 	<?php
 		  	 }

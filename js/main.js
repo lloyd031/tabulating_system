@@ -24,6 +24,36 @@ $(".joinevent").click(function(){
     $(".navmenu").toggle();
     
   });
+  var mul=0;
+  var m;
+  var left=$(".can-name-panel").css("margin-left");
+
+  function sub()
+  {
+
+    mul++;
+    console.log(left);
+   return m=-100*mul+'%';
+
+  }
+   function add()
+  {
+    if(m<left)
+    {
+      mul--;
+      return m=-100*mul+'%';
+    }
+  }
+  $(".fa-caret-right").click(function(){
+    $(".can-name-panel").css("margin-left",sub());
+   
+    
+  });
+    $(".fa-caret-left").click(function(){
+    $(".can-name-panel").css("margin-left",add());
+   
+    
+  });
 
 
   $(".eventpanel").addClass("animate__animated animate__zoomIn");
