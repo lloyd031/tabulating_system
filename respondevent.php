@@ -111,25 +111,31 @@
 							  	if(mysqli_num_rows($res)>0)
 							  	{
 							  	 while ($candidate=$res->fetch_assoc()) {
+							  	 	$id="".$candidate['vADq6R'].""."".$portion['gdSWLv']."";
 							  	 	?>
 							  	 		
-							  	 			<div class="erow can-name-con">
+							  	 			<div id=<?=$id?>>
+							  	 				<div class="erow can-name-con">
 							  	 				
 							  	 				<h4 style="padding: 6px;"><?=$candidate['can_no']?></h4>
 							  	 				<h4 style="padding: 6px; "><?=$candidate['name']?></h4>
 							  	 		</div>
+							  	 			</div>
 							  	 		<?php
 							  	 		       	$sql = "SELECT * FROM `criteria` where pGQneg={$_GET['ev-id']}" ;
 							  					$cres=$mysqli->query($sql);
 							  					if(mysqli_num_rows($cres)>0)
 							  						{
 							  						while ($criteria=$cres->fetch_assoc()) {
+							  	 								
+
 							  	 								?>
 
 
 							  	 					 
 							  	 					<form class="list-e" action="addscore.php" method="POST">
-							  	 						<div class="erow" style="justify-content: space-between;">
+							  	 					
+							  	 							<div class="erow" style="justify-content: space-between;">
 							  	 							<h4 style="padding: 6px;"><?=$criteria['name']?> (1 - <?=$criteria['maxval']?>) pts</h4>
 							  	 							<div>
 							  	 								<input type="text" name="ev-id" value=<?=$_GET['ev-id']?> readonly style="display: none;" >
@@ -171,6 +177,7 @@
 		  	 												
 							  	 							</div>
 							  	 						</div>
+							  	 						
 
 							  	 					</form>
 							  	 						

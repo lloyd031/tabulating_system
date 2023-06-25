@@ -137,7 +137,7 @@
 						?>
 
 		  	 			<div>
-
+		  	 			
 		  	 			<input type="submit" name="update" value="Update" style="background: #8e6bcd">
 		  	 			<input type="submit" name="delete" value="Delete" style="background: #de4a36">
 		  	 			</div>

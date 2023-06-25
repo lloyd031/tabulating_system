@@ -130,7 +130,7 @@
 			<?php 
   
 		  	$mysqli = require __DIR__ . "/connect.php";
-		  	$sql = "SELECT * FROM candidate where pGQneg={$_GET['ev-id']} AND cat='female' ORDER BY percentage DESC LIMIT 2,1" ;
+		  	$sql = "SELECT * FROM candidate where pGQneg={$_GET['ev-id']} AND cat='female' ORDER BY percentage DESC LIMIT 1,1" ;
 		  	$result=$mysqli->query($sql);
 		  	
 		  	if(mysqli_num_rows($result)>0)
@@ -195,7 +195,7 @@
 			<?php 
   
 		  	$mysqli = require __DIR__ . "/connect.php";
-		  	$sql = "SELECT * FROM candidate where pGQneg={$_GET['ev-id']} AND cat='female' ORDER BY percentage DESC LIMIT 3,1" ;
+		  	$sql = "SELECT * FROM candidate where pGQneg={$_GET['ev-id']} AND cat='female' ORDER BY percentage DESC LIMIT 2,1" ;
 		  	$result=$mysqli->query($sql);
 		  	
 		  	if(mysqli_num_rows($result)>0)
@@ -218,7 +218,10 @@
 			?>
 		</div>
 		</div>
-	</div>
+		
+	</div><br>
+
+
 </div>
 <script type="text/javascript" src="js/particles.js"></script>
  <script type="text/javascript" src="js/app.js"></script>
