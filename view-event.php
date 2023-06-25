@@ -101,6 +101,7 @@
 		  	<div class="erow">
 		  	 <i class="fa-solid fa-check-double"  style="margin-right: 24px;"></i>
 		  	 <h5>Event Portion:</h5>
+
 		 	</div>	
 		 	<div class="erow" >
 		 		<form action="addPortion.php" method="POST" style="display: flex; justify-content: space-between; width: 100%" >
@@ -134,8 +135,10 @@
 		  	 			<?php
 		  	 			echo '<input type="text" name="pname" value="'.$portion['name'].'">';
 						?>
+
 		  	 			<div>
-		  	 				<input type="submit" name="update" value="Update" style="background: #8e6bcd">
+
+		  	 			<input type="submit" name="update" value="Update" style="background: #8e6bcd">
 		  	 			<input type="submit" name="delete" value="Delete" style="background: #de4a36">
 		  	 			</div>
 		  	 		</div>
@@ -256,7 +259,7 @@
 		  	 			<div class="erow " style="justify-content: space-between;">
 		  	 		<input type="text" name="ev-id" value=<?=$_GET['ev-id']?> readonly style="display: none;" >
 		  	 			<input type="text" name="can-id" value=<?=$candidate['vADq6R']?> readonly style="display: none;">
-		 			<input placeholder="no" type="number" name="no" required style="padding: 6px; width: 75px;margin-right: 6px;"  min="1" max="100"required  value=<?=$candidate['can_no']?>>
+		 			<input placeholder="no" type="number" name="no" required style="padding: 6px; width: 50px;margin-right: 6px;"  min="1" max="100"required  value=<?=$candidate['can_no']?>>
 		 			<?php
 		 					echo '<input type="text" placeholder="Department"  name="can-name" required style="padding: 6px;" value="'.$candidate['name'].'">
 		  	 			';
@@ -295,7 +298,7 @@
 		 		<form action="addCandidate.php" method="POST" style="display: flex;" >
 		 			<input type="text" name="cat" value="female" readonly style="display: none;">
 		 			<input type="text" name="ev-id" value=<?=$_GET['ev-id']?> readonly style="display: none;">
-		 			<input placeholder="no" type="number" name="no" required style="padding: 6px; width: 75px;margin-right: 6px;"  min="1" max="100"required>
+		 			<input placeholder="no" type="number" name="no" required style="padding: 6px; width: 50px;margin-right: 6px;"  min="1" max="100"required>
 		 			<input type="text" placeholder="name"  name="can-name" required style="padding: 6px;margin-right: 6px;">
 		 			<input type="text" placeholder="Department"  name="dept-name" required style="padding: 6px;">
 		 			<button type="submit" style="background: none; border: 0; padding: 6px;" title="add"><i class="fa-solid fa-plus"></i></button>
@@ -320,7 +323,7 @@
 		  	 			<div class="erow " style="justify-content: space-between;">
 		  	 		<input type="text" name="ev-id" value=<?=$_GET['ev-id']?> readonly style="display: none;" >
 		  	 			<input type="text" name="can-id" value=<?=$candidate['vADq6R']?> readonly style="display: none;">
-		 			<input placeholder="no" type="number" name="no" required style="padding: 6px; width: 75px;margin-right: 6px;"  min="1" max="100"required  value=<?=$candidate['can_no']?>>
+		 			<input placeholder="no" type="number" name="no" required style="padding: 6px; width: 50px;margin-right: 6px;"  min="1" max="100"required  value=<?=$candidate['can_no']?>>
 		 			<?php
 		 					echo '<input type="text" placeholder="Name"  name="can-name" required style="padding: 6px;" value="'.$candidate['name'].'">
 		  	 			';
