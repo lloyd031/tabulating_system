@@ -119,6 +119,7 @@
 							  	 				
 							  	 				<h4 style="padding: 6px;"><?=$candidate['can_no']?></h4>
 							  	 				<h4 style="padding: 6px; "><?=$candidate['name']?></h4>
+							  	 				
 							  	 		</div>
 							  	 			</div>
 							  	 		<?php
@@ -210,8 +211,7 @@
 	</div>
 
 	</div>
- <script type="text/javascript" src="js/particles.js"></script>
- <script type="text/javascript" src="js/app.js"></script>
+
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
  <script type="text/javascript" src="js/main.js" defer></script>
 </body>

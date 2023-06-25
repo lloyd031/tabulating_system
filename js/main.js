@@ -25,6 +25,7 @@ $(".joinevent").click(function(){
     
   });
 
+
   $(".eventpanel").addClass("animate__animated animate__zoomIn");
   $(".rank").addClass("animate__animated animate__slideInUp");
   
