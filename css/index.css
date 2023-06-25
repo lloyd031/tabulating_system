@@ -288,17 +288,16 @@ ul li a i
 
 .event-wrapper
 {
-	width: 100%;
+	width: 99%;
 	height: 100px;
-	display: grid;
 	grid-template-columns: auto auto auto;
-
+	
 }
 
 .eventpanel
 {
 	width: auto;
-	height:200px;
+	min-height:200px;
 	background:white;
 	display: flex;
 	flex-direction: column;
@@ -361,6 +360,7 @@ ul li a i
 .event-details-con
 {
 	width: 500px;
+	padding: 3px;
 	background: white;
 	box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.38);
 -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.38);

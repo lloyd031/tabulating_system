@@ -25,7 +25,7 @@
 	</div><br>
 	
 	<div class="firstplace-con">
-		<div  class="rank" style="flex-grow: 1;animation-delay: 0.2s">
+		<div  class="rank" style="width: 45%;animation-delay: 0.2s">
 			<div class="erow">
 		<h2 style="color:white"><i class="fa-solid fa-crown"></i> &nbsp First Place - Male</h2>
 		</div>
@@ -57,7 +57,7 @@
 			?>
 		</div>
 		</div>
-		<div class="rank" style="flex-grow: 1;animation-delay: 0.2s">
+		<div class="rank" style="width: 45%;animation-delay: 0.2s">
 			<div class="erow">
 		<h2 style="color:white"><i class="fa-solid fa-chess-queen"></i> &nbsp First Place - Female</h2>
 		</div>
