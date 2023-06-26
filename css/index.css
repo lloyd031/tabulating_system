@@ -362,7 +362,7 @@ ul li a i
 
 .event-details-con
 {
-	width: 500px;
+	width: 100%;
 	overflow: hidden;
 	padding: 3px;
 	background: white;
@@ -592,7 +592,7 @@ font-family: 'Roboto Condensed', sans-serif;
 }
 .portion-wrapper
 {
-	width: 500px; overflow: hidden;
+	width: 90%; overflow: hidden;
 	position: relative;
 	left: 50%;
 	transform: translateX(-50%);
@@ -600,19 +600,18 @@ font-family: 'Roboto Condensed', sans-serif;
 .pwnav
 {
 	position: relative;
-	left: 50%;
-	transform: translateX(-50%);
-	padding: 10px;
-	
-	display: flex;
-	justify-content: center;
+	left:5%;
+	padding: 8px;
+	width: 90%;
+	background:#8e6bcd;
 }
 .pwnav a
 {
 	color:white;
 	font-family: 'Roboto Condensed', sans-serif;
 	padding: 8px;
-	background:#8e6bcd
+	background:#8e6bcd;
+	margin-right:6px;
 }
 .pwnav a:hover
 {

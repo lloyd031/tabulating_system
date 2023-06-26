@@ -57,7 +57,7 @@
 	
 		
 	
-		<div class="event-det-main-con">
+		<div class="event-det-main-con" style="width: 90%">
   	<div class="event-details-con">
   		<div class="eventpanel-title s-event-title" >
   			<h2><?=$event2['ename']?></h2>
@@ -109,10 +109,16 @@
 		  			for($i=0; $i<mysqli_num_rows($result); $i++)
 			  		{
 			  			$pname=$portionresult->fetch_assoc();
-			  			if($_GET['p']==$i)
+			  			if(isset($_GET['p']))
+			  			{
+			  				if($_GET['p']==$i)
 			  			{
 			  				echo '<a class="active" href="respondevent.php?ev-id=38&i=0&p='.$i.'" >'.$pname['name'].'</a>';
 
+			  			}else
+			  			{
+			  				echo '<a href="respondevent.php?ev-id=38&i=0&p='.$i.'">'.$pname['name'].'</a>';
+			  			}
 			  			}else
 			  			{
 			  				echo '<a href="respondevent.php?ev-id=38&i=0&p='.$i.'">'.$pname['name'].'</a>';
@@ -123,7 +129,7 @@
 		  			?>
 		  		</div>
 		  		</div><br>
- 					<div class="portion-wrapper" style="">
+ 					<div class="portion-wrapper" >
 		  			<div  style="display: flex; width: <?=$pcount*100?>%;  margin-left: <?=$p*-100?>%;">
 		  		<?php
 		  	 for ($por=0; $por<mysqli_num_rows($result); $por++) {
@@ -278,7 +284,7 @@
 	
 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
- <script type="text/javascript">var i=<?=$i?>;var p=<?=$p?>;</script>
+ <script type="text/javascript">var i=<?=$i?>;var p=<?=$p?>;var ccount=<?=$cancount?></script>
  <script type="text/javascript" src="js/main.js" defer></script>
 </body>
 </html>
