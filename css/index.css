@@ -630,3 +630,25 @@ a.active
 	background:white;
 	color:#5662eb;
 }
+.res-portion
+{
+	width: 90%;
+	padding: 10px;
+	position: relative;left: 50%;
+	transform: translateX(-50%);
+}
+.portion-res-tab
+{
+	padding: 10px;
+	width: 50%;
+	float: left;
+	padding: 10px;
+}
+.res-portion-cotainer
+{
+	width: 100%;
+	padding: 6px;
+	background:white;
+	border-radius: 6px;
+
+}

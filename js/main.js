@@ -25,7 +25,8 @@ $(".joinevent").click(function(){
     
   });
  $(".eventpanel").addClass("animate__animated animate__zoomIn");
-  $(".rank").addClass("animate__animated animate__slideInUp");
+  $(".rank").addClass("animate__animated animate__slideInDown");
+  $(".portion-res-tab").addClass("animate__animated animate__slideInDown");
   
   
 
