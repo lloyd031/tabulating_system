@@ -38,8 +38,10 @@ $stmt->bind_param("d",$per);
 if($stmt->execute())
 {
   $evId=$_POST['ev-id'];
-  $class="".$_POST['portion-id']."";
- header( "refresh:0; url=respondevent.php?ev-id=".$evId."#$class" );
+  $i="".$_POST['i']."";
+  $p="".$_POST['por']."";
+
+ header( "refresh:0; url=respondevent.php?ev-id=".$evId."&i=".$i."&p=".$p."" );
   die();
 }
 }

@@ -24,25 +24,27 @@ $(".joinevent").click(function(){
     $(".navmenu").toggle();
     
   });
-  var mul=0;
+ $(".eventpanel").addClass("animate__animated animate__zoomIn");
+  $(".rank").addClass("animate__animated animate__slideInUp");
+  
+  var x=0;
+  var mul = i;
   var m;
-  var left=$(".can-name-panel").css("margin-left");
+  console.log(mul);
 
   function sub()
   {
-
+    
     mul++;
-    console.log(left);
    return m=-100*mul+'%';
 
   }
    function add()
   {
-    if(m<left)
-    {
+    
       mul--;
       return m=-100*mul+'%';
-    }
+   
   }
   $(".fa-caret-right").click(function(){
     $(".can-name-panel").css("margin-left",sub());
@@ -56,8 +58,6 @@ $(".joinevent").click(function(){
   });
 
 
-  $(".eventpanel").addClass("animate__animated animate__zoomIn");
-  $(".rank").addClass("animate__animated animate__slideInUp");
-  
+ 
 });
 

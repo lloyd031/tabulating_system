@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
-
+html {
+  scroll-behavior: smooth;
+}
 *
 {
 	box-sizing: border-box;
@@ -587,4 +589,39 @@ font-family: 'Roboto Condensed', sans-serif;
 .can-name-panel
 {
 	transition: 0.2s ease-in-out;
+}
+.portion-wrapper
+{
+	width: 500px; overflow: hidden;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.pwnav
+{
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 10px;
+	
+	display: flex;
+	justify-content: center;
+}
+.pwnav a
+{
+	color:white;
+	font-family: 'Roboto Condensed', sans-serif;
+	padding: 8px;
+	background:#8e6bcd
+}
+.pwnav a:hover
+{
+	background:white;
+	color: #8e6bcd;
+}
+
+a.active
+{
+	background:white;
+	color: #8e6bcd;
 }

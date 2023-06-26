@@ -8,7 +8,9 @@
   	$result=$mysqli->query($sql);
 	$user=$result->fetch_assoc();
   }
-    $mysqli = require __DIR__ . "/connect.php";
+    if($user!=null)
+    {
+    	$mysqli = require __DIR__ . "/connect.php";
   	$sql = sprintf("SELECT * FROM `event` WHERE pGQneg='%s'",$mysqli->real_escape_string($_GET['ev-id'])) ;
   	$result=$mysqli->query($sql);
 	$event2=$result->fetch_assoc();
@@ -40,6 +42,7 @@
 	$apcount=mysqli_num_rows($apresult);
     
    
+    }
    
 	?>
 <!DOCTYPE html>
@@ -71,23 +74,65 @@
 		 </div>
 		 <div class="erow">
 		  	 <i class="fa-solid fa-user"  style="margin-right: 24px;"></i>
-		  	 <h5><?=$user['fn']?><?=$user['ln']?></h5>
+		  	 <h5><?=$user['fn']?> <?=$user['ln']?></h5>
 		 </div>
 
 		</div>
   	</div>
+  	</div>
+
+	</div>
   	<br>
-			<?php 
+			 
+			 	<?php 
   
 		  	$mysqli = require __DIR__ . "/connect.php";
 		  	$sql = "SELECT * FROM `portion` where pGQneg={$_GET['ev-id']}" ;
 		  	$result=$mysqli->query($sql);
+		  	$portionresult=$mysqli->query($sql);
 		  	$pcount=mysqli_num_rows($result);
-		  	if(mysqli_num_rows($result)>0)
+		  	?>
+		  	
+		  	<?php
+		  	$p=0;
+		  	if(isset($_GET['p']))
 		  	{
-		  	 while ($portion=$result->fetch_assoc()) {
+		  	 $p=$_GET['p'];
+		  	}
+		  	if(mysqli_num_rows($result)>0)
+		  	{ 
+		  		?>
+		  		<div class="pwnav">
+		  			<div class="portion-btn">
+		  			<?php
+                      
+		  			for($i=0; $i<mysqli_num_rows($result); $i++)
+			  		{
+			  			$pname=$portionresult->fetch_assoc();
+			  			if($_GET['p']==$i)
+			  			{
+			  				echo '<a class="active" href="respondevent.php?ev-id=38&i=0&p='.$i.'" >'.$pname['name'].'</a>';
+
+			  			}else
+			  			{
+			  				echo '<a href="respondevent.php?ev-id=38&i=0&p='.$i.'">'.$pname['name'].'</a>';
+			  			}
+			  			
+			  			
+			  		}
+		  			?>
+		  		</div>
+		  		</div><br>
+ 					<div class="portion-wrapper" style="">
+		  			<div  style="display: flex; width: <?=$pcount*100?>%;  margin-left: <?=$p*-100?>%;">
+		  		<?php
+		  	 for ($por=0; $por<mysqli_num_rows($result); $por++) {
+		  	 	$portion=$result->fetch_assoc();
 		  	 	?>
-		  	 		     <div class="event-details-con" >
+
+		  	 		     
+		  	 		    
+		  	 		     	<div class="event-details-con" >
 		  	 		     	
 		  	 		     
 		  	 			<div class="eventpanel-title s-event-title" style="justify-content: space-between; width: 100%;">
@@ -99,25 +144,32 @@
 		  	 			
 		  	 				
 		  	 					<?php 
-  								$i=0;
 							  	
 							  	$sql = "SELECT * FROM `candidate` where pGQneg={$_GET['ev-id']} ORDER BY can_no" ;
 							  	$res=$mysqli->query($sql);
 							  	$cancount=mysqli_num_rows($res);
+							  	$i=0;
+							  	if(isset($_GET['i']))
+							  	{
+							  		$i=$_GET['i'];
+							  	}
 							  	?>
-							  	<div class="can-name-panel" style="width: <?=$cancount*100?>%;">
+							  		
+							  	<?php
+							  	?>
+							  	<div class="can-name-panel" style="width: <?=$cancount*100?>%; margin-left: <?=$i*-100?>%">
 							  	<div style="display: flex; justify-content: space-between;">
 							  	<?php
 
 							  	if(mysqli_num_rows($res)>0)
 							  	{
-							  	 while ($candidate=$res->fetch_assoc()) {
-							  	 	
-							  	 	$id="".$portion['gdSWLv']."";
+							  	 for ($c=0;$c<mysqli_num_rows($res); $c++) {
+							  	 	$candidate=$res->fetch_assoc()
+							  	    
 							  	 	?>
 							  	 		
 							  	 			<div style="width:100%;">
-							  	 				<div id=<?=$id?>>
+							  	 				<div >
 							  	 				<div class="erow can-name-con">
 							  	 				
 							  	 				<h4 style="padding: 6px;"><?=$candidate['can_no']?></h4>
@@ -168,6 +220,8 @@
 											  								<input type="number" name="percentage" value=<?=$candidate['percentage']?> readonly   style="display: none;">
 											  								<input type="number" name="pcount" value=<?=$pcount?> readonly   style="display: none;">
 											  								<input type="number" name="apcount" value=<?=$apcount?> readonly   style="display: none;">
+											  								<input type="number" name="i" value=<?=$c?> readonly   style="display: none;">
+											  								<input type="number" name="por" value=<?=$por?> readonly   style="display: none;">
 											  								
 											  								<input type="number"   required min='1'  placeholder="score" name="score" max=<?=$criteria['maxval']?>>
 											  								<input type="submit" name="submit" value="Submit Vote"  style="background: #8e6bcd" >
@@ -203,13 +257,16 @@
 		  	 				<i class="fa-solid fa-caret-left"></i>
 		  	 				<i class="fa-solid fa-caret-right"></i>
 		  	 			</div>
-		  	 		</div> <br>
+		  	 		</div>
+		  	 		     <br>
 		  	 	<?php
 		  	 }
 		  	}
 			
 		    
 			?>
+			 </div>
+		  		</div>
 		
   	
   	
@@ -218,11 +275,10 @@
   	
 
   	
-	</div>
-
-	</div>
+	
 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script type="text/javascript">var i=<?=$i?>;var p=<?=$p?>;</script>
  <script type="text/javascript" src="js/main.js" defer></script>
 </body>
 </html>
