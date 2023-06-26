@@ -31,7 +31,8 @@
 <body><br>
 	<div class="view-event-con" style="padding: 10px;">
 	
-		<div class="acc-list-con">
+		<div style="width: 100%; display: flex;">
+			<div class="acc-list-con">
 		<div class="eventpanel-title s-event-title" >
   			<h4>Judges:</h4>
   		</div>
@@ -69,7 +70,51 @@
 		    
 			?>
 		</div>
-	</div>
+	</div>br
+	<div class="acc-list-con">
+		<div class="eventpanel-title s-event-title" >
+  			<h4>Requests:</h4>
+  		</div>
+  		<div class="criteria-list-con">
+			<?php 
+  
+		  	$mysqli = require __DIR__ . "/connect.php";
+		  	$sql = "SELECT * FROM joined_event where pGQneg={$_GET['ev-id']} AND status='pending'" ;
+		  	$result=$mysqli->query($sql);
+		  	
+		  	if(mysqli_num_rows($result)>0)
+		  	{
+		  	 while ($jev=$result->fetch_assoc()) {
+		  	 	?>
+		  	 		<div class="erow" style="justify-content: space-between; align-items: center;border-bottom: 1px solid gray;">
+		  	 			<?php
+		  	 			$accsql = "SELECT * FROM account where tQPs0y={$jev['tQPs0y']}" ;
+		  				$accresult=$mysqli->query($accsql);
+		  				$acc=$accresult->fetch_assoc();
+		  	 			?>
+		  	 			<h5><?=$acc['fn']?><?=$acc['ln']?></h5>
+		  	 			<div class="req-form">
+		  	 				<form action="acceptreq.php" method="POST">
+		  	 					<input type="text" style="display: none;" name="ev_id" value=<?=$jev['pGQneg']?>>
+		  	 				<input type="text" style="display: none;" name="acc_id" value=<?=$jev['tQPs0y']?>>
+		  	 				<input type="submit" value="Accept">
+		  	 			</form>
+		  	 			<form action="rejreq.php" method="POST">
+		  	 				<input type="text" name="ev_id" style="display: none;" value=<?=$jev['pGQneg']?>>
+		  	 				<input type="text" name="acc_id" style="display: none;" value=<?=$jev['tQPs0y']?>>
+		  	 				<input type="submit" value="Reject">
+		  	 			</form>
+		  	 			</div>
+		  	 		</div>
+		  	 	<?php
+		  	 }
+		  	}
+			
+		    
+			?>
+		</div>
+	</div><br>
+		</div> <br>		
 	
 		<div class="event-det-main-con">
   	<div class="event-details-con">
@@ -138,7 +183,7 @@
 
 		  	 			<div>
 		  	 			
-		  	 			<input type="submit" name="update" value="Update" style="background: #8e6bcd">
+		  	 			<input type="submit" name="update" value="Update" style="background:#5662eb">
 		  	 			<input type="submit" name="delete" value="Delete" style="background: #de4a36">
 		  	 			</div>
 		  	 		</div>
@@ -203,7 +248,7 @@
 		 			<input placeholder="score" type="number" name="percent" required style="padding: 6px; width: 75px;margin-left: 6px;"  min="1" max="100"required value=<?=$criteria['percent']?> ?>
 		  	 			
 		  	 			<div>
-		  	 				<input type="submit" value="Update" name="update" style="background: #8e6bcd" >
+		  	 				<input type="submit" value="Update" name="update" style="background: #5662eb" >
 		  	 			<input type="submit" value="Delete" name="delete" style="background:  #de4a36" >
 		  	 			
 		  	 			</div>
@@ -268,7 +313,7 @@
 		 					echo '<input type="text" placeholder="Department"  name="dept-name" required style="padding: 6px;" value="'.$candidate['dept'].'">
 		  	 			';
 		 			?>
-		  	 			<input type="submit" name="update" value="Update"  style="background: #8e6bcd" >
+		  	 			<input type="submit" name="update" value="Update"  style="background: #5662eb" >
 		  	 			<input type="submit" name="delete" value="Delete" style="background:  #de4a36" >
 		  	 			
 		  	 			
@@ -332,7 +377,7 @@
 		 					echo '<input type="text" placeholder="Department"  name="dept-name" required style="padding: 6px;" value="'.$candidate['dept'].'">
 		  	 			';
 		 			?>
-		  	 			<input type="submit" name="update" value="Update"  style="background: #8e6bcd" >
+		  	 			<input type="submit" name="update" value="Update"  style="background: #5662eb" >
 		  	 			<input type="submit" name="delete" value="Delete" style="background:  #de4a36" >
 		  	 			
 		  	 			
@@ -350,52 +395,9 @@
   	</div><br><br>
   	
 	</div>
-	<div class="acc-list-con">
-		<div class="eventpanel-title s-event-title" >
-  			<h4>Requests:</h4>
-  		</div>
-  		<div class="criteria-list-con">
-			<?php 
-  
-		  	$mysqli = require __DIR__ . "/connect.php";
-		  	$sql = "SELECT * FROM joined_event where pGQneg={$_GET['ev-id']} AND status='pending'" ;
-		  	$result=$mysqli->query($sql);
-		  	
-		  	if(mysqli_num_rows($result)>0)
-		  	{
-		  	 while ($jev=$result->fetch_assoc()) {
-		  	 	?>
-		  	 		<div class="erow" style="justify-content: space-between; align-items: center;border-bottom: 1px solid gray;">
-		  	 			<?php
-		  	 			$accsql = "SELECT * FROM account where tQPs0y={$jev['tQPs0y']}" ;
-		  				$accresult=$mysqli->query($accsql);
-		  				$acc=$accresult->fetch_assoc();
-		  	 			?>
-		  	 			<h5><?=$acc['fn']?><?=$acc['ln']?></h5>
-		  	 			<div class="req-form">
-		  	 				<form action="acceptreq.php" method="POST">
-		  	 					<input type="text" style="display: none;" name="ev_id" value=<?=$jev['pGQneg']?>>
-		  	 				<input type="text" style="display: none;" name="acc_id" value=<?=$jev['tQPs0y']?>>
-		  	 				<input type="submit" value="Accept">
-		  	 			</form>
-		  	 			<form action="rejreq.php" method="POST">
-		  	 				<input type="text" name="ev_id" style="display: none;" value=<?=$jev['pGQneg']?>>
-		  	 				<input type="text" name="acc_id" style="display: none;" value=<?=$jev['tQPs0y']?>>
-		  	 				<input type="submit" value="Reject">
-		  	 			</form>
-		  	 			</div>
-		  	 		</div>
-		  	 	<?php
-		  	 }
-		  	}
-			
-		    
-			?>
-		</div>
+	
 	</div>
-	</div>
- <script type="text/javascript" src="js/particles.js"></script>
- <script type="text/javascript" src="js/app.js"></script>
+
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
  <script type="text/javascript" src="js/main.js" defer></script>
 </body>

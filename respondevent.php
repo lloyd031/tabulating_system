@@ -57,7 +57,7 @@
 	
 		
 	
-		<div class="event-det-main-con" style="width: 90%">
+		<div class="event-det-main-con" style="width: 90%; margin-left: 5%;">
   	<div class="event-details-con">
   		<div class="eventpanel-title s-event-title" >
   			<h2><?=$event2['ename']?></h2>
@@ -178,8 +178,8 @@
 							  	 				<div >
 							  	 				<div class="erow can-name-con">
 							  	 				
-							  	 				<h4 style="padding: 6px;"><?=$candidate['can_no']?></h4>
-							  	 				<h4 style="padding: 6px; "><?=$candidate['name']?></h4>
+							  	 				<h3 style="padding: 6px;"><?=$candidate['can_no']?></h3>
+							  	 				<h3 style="padding: 6px; "><?=$candidate['name']?></h3>
 							  	 				
 							  	 		</div>
 							  	 			</div>
@@ -230,7 +230,7 @@
 											  								<input type="number" name="por" value=<?=$por?> readonly   style="display: none;">
 											  								
 											  								<input type="number"   required min='1'  placeholder="score" name="score" max=<?=$criteria['maxval']?>>
-											  								<input type="submit" name="submit" value="Submit Vote"  style="background: #8e6bcd" >
+											  								<input type="submit" name="submit" value="Submit Vote"  style="background: #5662eb" >
 											  								<?php
 											  							}
 
@@ -286,5 +286,6 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
  <script type="text/javascript">var i=<?=$i?>;var p=<?=$p?>;var ccount=<?=$cancount?></script>
  <script type="text/javascript" src="js/main.js" defer></script>
+ <script type="text/javascript" src="js/script.js" defer></script>
 </body>
 </html>
