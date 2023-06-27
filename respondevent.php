@@ -113,15 +113,15 @@
 			  			{
 			  				if($_GET['p']==$i)
 			  			{
-			  				echo '<a class="active" href="respondevent.php?ev-id=38&i=0&p='.$i.'" >'.$pname['name'].'</a>';
+			  				echo '<a class="active" href="respondevent.php?ev-id='.$_GET['ev-id'].'&i=0&p='.$i.'" >'.$pname['name'].'</a>';
 
 			  			}else
 			  			{
-			  				echo '<a href="respondevent.php?ev-id=38&i=0&p='.$i.'">'.$pname['name'].'</a>';
+			  				echo '<a href="respondevent.php?ev-id='.$_GET['ev-id'].'&i=0&p='.$i.'">'.$pname['name'].'</a>';
 			  			}
 			  			}else
 			  			{
-			  				echo '<a href="respondevent.php?ev-id=38&i=0&p='.$i.'">'.$pname['name'].'</a>';
+			  				echo '<a href="respondevent.php?ev-id='.$_GET['ev-id'].'&i=0&p='.$i.'">'.$pname['name'].'</a>';
 			  			}
 			  			
 			  			

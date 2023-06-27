@@ -313,8 +313,10 @@
 		 					echo '<input type="text" placeholder="Department"  name="dept-name" required style="padding: 6px;" value="'.$candidate['dept'].'">
 		  	 			';
 		 			?>
-		  	 			<input type="submit" name="update" value="Update"  style="background: #5662eb" >
+		  	 			<div>
+		  	 				<input type="submit" name="update" value="Update"  style="background: #5662eb" >
 		  	 			<input type="submit" name="delete" value="Delete" style="background:  #de4a36" >
+		  	 			</div>
 		  	 			
 		  	 			
 		  	 			
@@ -377,8 +379,10 @@
 		 					echo '<input type="text" placeholder="Department"  name="dept-name" required style="padding: 6px;" value="'.$candidate['dept'].'">
 		  	 			';
 		 			?>
-		  	 			<input type="submit" name="update" value="Update"  style="background: #5662eb" >
+		  	 			<div>
+		  	 				<input type="submit" name="update" value="Update"  style="background: #5662eb" >
 		  	 			<input type="submit" name="delete" value="Delete" style="background:  #de4a36" >
+		  	 			</div>
 		  	 			
 		  	 			
 		  	 			
